@@ -6,7 +6,8 @@
       "package_name": "in.lemonsplit.app",
       "sha256_cert_fingerprints": [
         "EC:17:25:A0:B5:35:16:BC:44:E8:43:51:20:EF:85:F9:9D:61:BD:4E:EE:F9:D8:3F:1D:CB:71:29:7C:12:CD:34",
-        "BB:EF:67:C9:2B:D4:75:67:D0:CF:A4:7D:80:FB:F7:62:A1:CB:53:A5:1F:2C:05:61:29:A1:AA:DE:67:DE:5D:E3"
+        "BB:EF:67:C9:2B:D4:75:67:D0:CF:A4:7D:80:FB:F7:62:A1:CB:53:A5:1F:2C:05:61:29:A1:AA:DE:67:DE:5D:E3",
+        "74:59:BD:6B:AB:49:D7:14:05:F6:4E:8F:8E:5B:41:E2:CA:09:EC:45:BE:C6:C2:06:4A:30:52:54:C4:BF:66:77"
       ]
     }
   }
