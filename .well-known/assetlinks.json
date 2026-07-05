@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "in.lemonsplit.app",
+      "sha256_cert_fingerprints": [
+        "EC:17:25:A0:B5:35:16:BC:44:E8:43:51:20:EF:85:F9:9D:61:BD:4E:EE:F9:D8:3F:1D:CB:71:29:7C:12:CD:34",
+        "BB:EF:67:C9:2B:D4:75:67:D0:CF:A4:7D:80:FB:F7:62:A1:CB:53:A5:1F:2C:05:61:29:A1:AA:DE:67:DE:5D:E3"
+      ]
+    }
+  }
+]
