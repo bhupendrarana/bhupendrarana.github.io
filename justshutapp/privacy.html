@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — JustShutApp</title>
+<meta name="description" content="Privacy policy for the JustShutApp call filter app.">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #16181c; --muted: #5b6068;
+    --rule: #e3e5e9; --accent: #16181c; --code-bg: #f2f3f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101215; --fg: #e8eaed; --muted: #a0a5ad;
+      --rule: #2a2e34; --accent: #ffffff; --code-bg: #1c1f24;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 3.5rem 1.25rem 6rem; }
+  h1 { font-size: 2rem; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+  h2 {
+    font-size: 1.2rem; letter-spacing: -0.01em; margin: 3rem 0 0.75rem;
+    padding-top: 1.5rem; border-top: 1px solid var(--rule);
+  }
+  h2:first-of-type { border-top: 0; padding-top: 0; }
+  p { margin: 0 0 1rem; }
+  ul, ol { margin: 0 0 1rem; padding-left: 1.35rem; }
+  li { margin-bottom: 0.6rem; }
+  li > ol { margin-top: 0.6rem; }
+  li > p { margin-top: 0.6rem; }
+  strong { font-weight: 650; }
+  code {
+    background: var(--code-bg); border-radius: 4px;
+    padding: 0.12em 0.35em; font-size: 0.9em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  /* The "Last updated" line, which the source emphasises. */
+  body > main > p:first-of-type em { color: var(--muted); font-style: normal; font-size: 0.95rem; }
+  footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+<h1>Privacy policy — JustShutApp</h1>
+<p><em>Last updated: 1 August 2026</em></p>
+<p>JustShutApp filters incoming calls on your phone. This describes exactly what it does with your data. It is written to be checkable against the source code, which is where the real answer lives.</p>
+<h2>What stays on your device</h2>
+<p>All of it. The app has no upload of any kind.</p>
+<ul><li><strong>Your call history in the app.</strong> Every screening decision — the number, what we did, which rule did it — is stored in a local database and never uploaded. It is capped at the 2,000 most recent calls.</li><li><strong>Your blocked and allowed lists</strong>, and any number ranges you added.</li><li><strong>Your contacts.</strong> If you grant contacts access, the app reads phone numbers to make sure people you know are never filtered. Contacts are held in memory only, are never written to disk by this app, and are never transmitted. Refusing the permission does not stop the app working.</li><li><strong>Your settings.</strong></li></ul>
+<p>The app is excluded from Android <strong>cloud backup</strong>, so none of the above is ever uploaded to Google's servers. It is included in <strong>device-to-device transfer</strong>, so your lists and settings come across when you set up a new phone — that transfer runs directly between your two devices and nothing is stored anywhere in between. On Android 11 and below, where the two cannot be told apart, everything is excluded from both; use the app's own export/import instead. Uninstalling deletes all of it.</p>
+<h2>What is sent</h2>
+<p><strong>Nothing.</strong> There is no upload path in the app at all — no accounts, no sign-in, no telemetry, and no way to submit anything to us. Marking a call as spam inside the app records that on your phone, where it feeds your own blocked list and the range detection described below. It is not transmitted.</p>
+<p>This is a deliberate limitation rather than a feature that is coming later. If that ever changes, it will be an opt-in you are asked about, announced in the release notes, and described here before it ships.</p>
+<h2>What is downloaded</h2>
+<p>Once a day the app fetches a community blocklist over HTTPS. This is an anonymous download of a static file, the same file for every user. Your device sends nothing in order to receive it beyond what any web request necessarily reveals — your IP address, and the fact that a request was made — which reaches only the file's host and is not recorded by us or linked to anything.</p>
+<p>The file is cryptographically signed, and a list that fails signature verification is discarded rather than applied. You can switch this off entirely under <strong>Settings → Screening → Use the community list</strong>.</p>
+<h2>Permissions, and what each one is for</h2>
+<p>Only call screening is required. Every other permission below is optional, and refusing it disables one feature rather than the app.</p>
+<ul><li><strong>Caller ID &amp; spam role</strong> — required. Lets Android hand JustShutApp the incoming number just before your phone rings, so it can be checked against your rules.</li><li><strong>Phone state</strong> — detects that a call started and ended, and whether you picked up. It reports only <code>ringing / in-call / idle</code>. It does not identify the caller.</li><li><strong>Call log</strong> <em>(optional)</em> — used for three things, all on your device only:<ol><li><strong>Telling a call you rejected apart from one you missed.</strong> Android exposes that distinction nowhere else, and without it JustShutApp asks before blocking rather than blocking on its own. This reads one row, at the moment a call ends.</li><li><strong>Noticing that another caller-ID app on your phone flagged the number.</strong> Those apps' verdicts are not readable directly, but when one supplies a name for an unknown caller your dialer may save that name against the call — and for a flagged number the name is often the label itself. JustShutApp reads that same row and, if the name reads as a spam label, silences that number next time. It is read on your phone, is never uploaded, and never affects a number in your contacts.</li><li><strong>A one-off backfill when you first grant it.</strong> The app reads your recent call history (up to 5,000 entries) once, to learn which numbers have called you and which you never picked up. This is what lets it spot a block of consecutive numbers behind a campaign immediately, instead of after weeks of use.</li></ol><p>The backfill stores, on your device: the phone numbers that called you, and a flag for whether each was blocked, declined, or never answered. It does not store call times, durations, directions, or anything about calls you made. Numbers in your contacts are skipped entirely. <strong>None of it is ever uploaded.</strong> The backfill is purely local; there is nowhere for it to go.</p></li><li><strong>Contacts</strong> <em>(optional)</em> — so people you know are never filtered. Held in memory only.</li><li><strong>Display over other apps</strong> <em>(optional)</em> — draws the after-call sheet over your screen. Refused, the same options arrive as a notification.</li><li><strong>Notifications</strong> <em>(optional)</em> — the after-call prompt, and telling you when a number was blocked on your behalf.</li></ul>
+<p>JustShutApp does <strong>not</strong> request the SMS permission and cannot read your messages. Call audio is never recorded, accessed, or transmitted.</p>
+<h2>When the app blocks a number on its own</h2>
+<p>If you enable "Block numbers you decline", rejecting a call from an unknown number blocks it immediately. You are always told, on screen or by notification, and undo is one tap. Contacts, allowlisted numbers, emergency numbers, and the 1600 service series are never blocked this way.</p>
+<p>JustShutApp also groups reported numbers into ranges: when enough numbers from the same block are reported and nothing you have vouched for falls inside it, the rest of that range is silenced. Every such range is listed in the app with its evidence and can be removed individually. This happens entirely on your device.</p>
+<h2>Analytics and advertising</h2>
+<p>There are none. No analytics SDK, no crash reporting service, no advertising identifier, no third-party trackers.</p>
+<h2>Third parties</h2>
+<p>The community blocklist is served as a static file from GitHub Pages, which sees the download request and nothing else. There are no other third parties, no SDKs, and no data processors. Your data is not sold, rented, or shared for advertising — there is no data of yours to sell.</p>
+<h2>Your rights</h2>
+<p>Under India's Digital Personal Data Protection Act, 2023, you can ask what data relates to you and ask for it to be erased.</p>
+<p>In practice we hold nothing about you. The app has no account, no identifier tied to your person, and no upload — everything it knows lives on your phone and is erased by uninstalling the app or clearing its storage. You can also see all of it for yourself: <strong>Settings → Backup &amp; data → Export</strong> writes the app's entire contents to a readable JSON file you choose the location of.</p>
+<p>If a number of yours appears on the community blocklist and should not, write to the address below and it will be removed.</p>
+<h2>Children</h2>
+<p>JustShutApp is not directed at children under 18 and collects nothing that would identify one.</p>
+<h2>Changes</h2>
+<p>Material changes will be announced in the app's release notes before they take effect.</p>
+<h2>Contact</h2>
+<p><a href="mailto:support@theusecase.in">support@theusecase.in</a></p>
+<footer>JustShutApp — a call filter for India. This page is generated from
+<code>PRIVACY.md</code> in the app's source.</footer>
+</main>
+</body>
+</html>
